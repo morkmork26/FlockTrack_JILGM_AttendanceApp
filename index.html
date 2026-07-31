@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FlockTrack - App Overview & Setup Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Raleway:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f8f9fc;--card:#ffffff;--text:#1a1a2e;--text2:#5a5a6e;--accent:#4f46e5;--accent2:#0ea5e9;--border:rgba(0,0,0,0.06);--radius:16px;--shadow:0 2px 12px rgba(0,0,0,0.06)}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.hero{background:linear-gradient(135deg,#4f46e5,#0ea5e9);padding:60px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-40px;left:0;right:0;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero h1{font-family:'Raleway',sans-serif;font-size:42px;color:#fff;margin-bottom:8px;letter-spacing:1px}
+.hero h1 .track{color:#a5f3fc}
+.hero .subtitle{color:rgba(255,255,255,0.85);font-size:16px;font-weight:500}
+.hero .version{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-top:12px;backdrop-filter:blur(4px)}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+.section{margin:48px 0}
+.section-title{font-size:22px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.section-title .icon{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;flex-shrink:0}
+.section-desc{color:var(--text2);font-size:14px;margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:16px;transition:transform 0.2s,box-shadow 0.2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.08)}
+.card h3{font-size:16px;font-weight:700;margin-bottom:8px;color:var(--accent)}
+.card p,.card li{font-size:14px;color:var(--text2);line-height:1.7}
+.card ul{padding-left:18px}
+.card ul li{margin-bottom:4px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.step{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px}
+.step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.step-content h4{font-size:15px;font-weight:600;margin-bottom:4px}
+.step-content p{font-size:13px;color:var(--text2)}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;margin-right:6px}
+.tag-blue{background:rgba(79,70,229,0.1);color:var(--accent)}
+.tag-green{background:rgba(22,163,74,0.1);color:#16a34a}
+.tag-orange{background:rgba(217,119,6,0.1);color:#d97706}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.feature-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;box-shadow:var(--shadow)}
+.feature-item .emoji{font-size:28px;margin-bottom:8px}
+.feature-item h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.feature-item p{font-size:12px;color:var(--text2)}
+.note-box{background:linear-gradient(135deg,rgba(79,70,229,0.05),rgba(14,165,233,0.05));border:1px solid rgba(79,70,229,0.15);border-radius:12px;padding:16px 20px;margin:16px 0}
+.note-box p{font-size:13px;color:var(--text2)}
+.note-box strong{color:var(--accent)}
+.footer{text-align:center;padding:40px 24px;color:var(--text2);font-size:12px;border-top:1px solid var(--border);margin-top:60px}
+code{background:rgba(79,70,229,0.08);padding:2px 8px;border-radius:6px;font-size:13px;font-family:'SF Mono',Menlo,monospace;color:var(--accent)}
+.toc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);margin-top:-40px;position:relative;z-index:2}
+.toc h3{font-size:14px;font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text2)}
+.toc ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px}
+.toc li a{font-size:14px;color:var(--accent);text-decoration:none;font-weight:500;transition:color 0.2s}
+.toc li a:hover{color:var(--accent2)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>Flock<span class="track">Track</span></h1>
+<p class="subtitle">JILGM STB Church Attendance System</p>
+<span class="version">v1.2.0 - Current Release</span>
+</div>
+
+<div class="container">
+
+<div class="toc">
+<h3>Table of Contents</h3>
+<ul>
+<li><a href="#whatis">What is FlockTrack?</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#setup">Setup Guide</a></li>
+<li><a href="#tabs">App Tabs Overview</a></li>
+<li><a href="#faq">FAQ & Tips</a></li>
+</ul>
+</div>
+
+<div class="section" id="whatis">
+<div class="section-title"><div class="icon">&#9775;</div> What is FlockTrack?</div>
+<div class="card">
+<p>FlockTrack is a Web App (PWA) built for <strong>JILGM Sto. Tomas</strong> to track Sunday attendance. It works on any phone or tablet, can be installed like a native app, and works offline. Data syncs to Google Sheets via Google Apps Script.</p>
+<div style="margin-top:12px">
+<span class="tag tag-blue">PWA</span>
+<span class="tag tag-green">Offline-Ready</span>
+<span class="tag tag-orange">Google Sheets Backend</span>
+</div>
+</div>
+</div>
+
+<div class="section" id="features">
+<div class="section-title"><div class="icon">&#9733;</div> Features</div>
+<div class="feature-grid">
+<div class="feature-item"><div class="emoji">&#128247;</div><h4>QR Scan Check-In</h4><p>Scan member QR codes for instant check-in</p></div>
+<div class="feature-item"><div class="emoji">&#128070;</div><h4>Quick Tap</h4><p>Tap avatar grid for fast manual check-in</p></div>
+<div class="feature-item"><div class="emoji">&#128269;</div><h4>Search</h4><p>Find and check in members by name</p></div>
+<div class="feature-item"><div class="emoji">&#128101;</div><h4>Member Management</h4><p>Add, edit, filter by ministry or outreach</p></div>
+<div class="feature-item"><div class="emoji">&#128202;</div><h4>Reports & Charts</h4><p>Weekly trends, ministry breakdown, follow-ups</p></div>
+<div class="feature-item"><div class="emoji">&#128274;</div><h4>Device Access Control</h4><p>Admin approves devices before use</p></div>
+<div class="feature-item"><div class="emoji">&#9889;</div><h4>Offline First</h4><p>Works without internet, syncs when connected</p></div>
+<div class="feature-item"><div class="emoji">&#128228;</div><h4>Email Reports</h4><p>Generate and send attendance summaries</p></div>
+<div class="feature-item"><div class="emoji">&#127763;</div><h4>Dark / Light Mode</h4><p>Toggle based on preference</p></div>
+<div class="feature-item"><div class="emoji">&#128276;</div><h4>Follow-Up Alerts</h4><p>Flags members absent 2+ Sundays</p></div>
+<div class="feature-item"><div class="emoji">&#128241;</div><h4>Installable PWA</h4><p>Add to home screen, full-screen experience</p></div>
+</div>
+</div>
+
+<div class="section" id="setup">
+<div class="section-title"><div class="icon">&#9881;</div> Setup Guide</div>
+<p class="section-desc">Follow these steps to get FlockTrack running on your device.</p>
+
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content">
+<h4>Fill Up the Registration Form</h4>
+<p>Before anything else, fill up this form so we can register you as a user:<br><a href="https://docs.google.com/forms/d/e/1FAIpQLSfPYM79x__GAsfpm_UpKAGU2SJ-_PLxmfHVlPXOr2d4ypOy0w/viewform?usp=dialog" target="_blank" style="color:var(--accent);font-weight:600">Click here to fill up the registration form</a></p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content">
+<h4>Open the App Link</h4>
+<p>Open the GitHub Pages link in Chrome (Android) or Safari (iPhone):<br><code>https://morkmork26.github.io/JILGM-Attendance/</code></p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content">
+<h4>Install the App (Recommended)</h4>
+<p><strong>Android:</strong> Tap the "Install App" banner or go to Chrome menu > "Add to Home Screen".<br>
+<strong>iPhone:</strong> Tap the Share button > "Add to Home Screen".<br>
+This gives you a full-screen app experience without the browser toolbar.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-content">
+<h4>Start Using</h4>
+<p>Once approved, you land on the Check-In tab. Choose QR Scan, Quick Tap, or Search mode to start checking in members every Sunday.</p>
+</div>
+</div>
+
+<div class="note-box">
+<p><strong>Note:</strong> The app only needs internet to sync data. If you're offline, check-ins are saved locally and will sync automatically when you reconnect.</p>
+</div>
+</div>
+
+<div class="section" id="tabs">
+<div class="section-title"><div class="icon">&#128196;</div> App Tabs Overview</div>
+<div class="grid-2">
+<div class="card">
+<h3>&#9745; Check-In Tab</h3>
+<ul>
+<li><strong>QR Scan</strong> - Use phone camera to scan member QR codes</li>
+<li><strong>Quick Tap</strong> - Avatar grid; tap a member's face to check them in (green ring = checked in)</li>
+<li><strong>Search</strong> - Type a name to find and check in</li>
+<li>Counter badge at top right shows checked-in / total</li>
+<li>Filter by ministry in Quick Tap mode</li>
+</ul>
+</div>
+<div class="card">
+<h3>&#128101; Members Tab</h3>
+<ul>
+<li>Search and browse all registered members</li>
+<li>Filter by Active/Inactive status</li>
+<li>Filter by Ministry or Outreach location</li>
+<li>Tap a member to view profile, attendance streak, history</li>
+<li>Use the + button (FAB) to add new members</li>
+</ul>
+</div>
+<div class="card">
+<h3>&#128202; Reports Tab</h3>
+<ul>
+<li>Stats cards: Checked In Today, Total Members, Children, New This Month, Weekly Average</li>
+<li>Ministry Breakdown chart</li>
+<li>Weekly Attendance bar chart (last several Sundays)</li>
+<li>Needs Follow-Up list (absent 2+ Sundays)</li>
+<li>Children count input for Sunday School</li>
+<li>"Generate Report" button to email summary</li>
+</ul>
+</div>
+<div class="card">
+<h3>&#9881; Settings Tab</h3>
+<ul>
+<li><strong>Appearance</strong> - Dark/Light mode toggle</li>
+<li><strong>Connection</strong> - Google Apps Script URL (backend)</li>
+<li><strong>Report</strong> - Email address, default outreach location</li>
+<li><strong>Sync</strong> - Manual sync, view pending changes</li>
+<li><strong>Data</strong> - Export attendance as CSV</li>
+<li><strong>Ministries</strong> - Add/remove ministry tags</li>
+<li><strong>Occasions</strong> - Add special events (Christmas, Anniversary, etc.)</li>
+<li><strong>Feedback</strong> - Send suggestions or bug reports</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="section" id="faq">
+<div class="section-title"><div class="icon">&#10067;</div> FAQ & Tips</div>
+<div class="card">
+<h3>Can I use it without internet?</h3>
+<p>Yes. The app caches everything locally via Service Worker. Check-ins are saved offline and sync when you're back online. The green dot in the header shows sync status.</p>
+</div>
+<div class="card">
+<h3>What if the QR scanner doesn't work?</h3>
+<p>Make sure you've allowed camera permission. You can also use Quick Tap or Search mode as alternatives. Tap "Flip Camera" to switch between front/back camera.</p>
+</div>
+<div class="card">
+<h3>How do I know someone is checked in?</h3>
+<p>Their avatar gets a green ring around it, and the counter badge updates (e.g., "15/42"). A success toast notification also appears.</p>
+</div>
+<div class="card">
+<h3>What are "Occasions"?</h3>
+<p>Special events like Christmas Service, Anniversary, Youth Night, etc. When an occasion is active, a banner appears at the top of Check-In and attendance is tagged with that event name.</p>
+</div>
+<div class="card">
+<h3>How does Follow-Up work?</h3>
+<p>Members who have missed 2 or more consecutive Sundays appear in the "Needs Follow-Up" section of the Reports tab, so leaders can reach out.</p>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+<p>FlockTrack v1.2.0 - JILGM Sto. Tomas<br>
+<a href="https://github.com/morkmork26/JILGM-Attendance" style="color:var(--accent);text-decoration:none">github.com/morkmork26/JILGM-Attendance</a></p>
+</div>
+
+</body>
+</html>
